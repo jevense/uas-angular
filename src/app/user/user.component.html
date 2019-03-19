@@ -49,7 +49,11 @@
         <nz-form-item>
           <nz-form-label nzFor="no">状态</nz-form-label>
           <nz-form-control>
-            <input nz-input name="no" placeholder="请输入">
+            <nz-select nzPlaceHolder="请选择">
+              <nz-option nzValue="all" nzLabel="全部"></nz-option>
+              <nz-option nzValue="male" nzLabel="启用"></nz-option>
+              <nz-option nzValue="female" nzLabel="禁用"></nz-option>
+            </nz-select>
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -57,7 +61,14 @@
         <nz-form-item>
           <nz-form-label nzFor="no">人员类别</nz-form-label>
           <nz-form-control>
-            <input nz-input name="no" placeholder="请输入">
+            <nz-select nzPlaceHolder="请选择">
+              <nz-option nzValue="all" nzLabel="所有类型"></nz-option>
+              <nz-option nzValue="male" nzLabel="学员"></nz-option>
+              <nz-option nzValue="female" nzLabel="师资"></nz-option>
+              <nz-option nzValue="female" nzLabel="护理人员"></nz-option>
+              <nz-option nzValue="female" nzLabel="医师/其他"></nz-option>
+              <nz-option nzValue="female" nzLabel="机构管理员"></nz-option>
+            </nz-select>
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -73,7 +84,15 @@
         <nz-form-item>
           <nz-form-label nzFor="no">所在专业</nz-form-label>
           <nz-form-control>
-            <input nz-input name="no" placeholder="请输入">
+            <nz-tree-select
+              [nzNodes]="nodes"
+              nzShowSearch
+              nzCheckable
+              name="value"
+              [(ngModel)]="value"
+              nzPlaceHolder="请选择所在专业"
+              (ngModelChange)="onChange($event)">
+            </nz-tree-select>
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -89,7 +108,15 @@
         <nz-form-item>
           <nz-form-label nzFor="no">产品角色</nz-form-label>
           <nz-form-control>
-            <input nz-input name="no" placeholder="请输入">
+            <nz-tree-select
+              [nzNodes]="nodes"
+              nzShowSearch
+              nzCheckable
+              name="value"
+              [(ngModel)]="value"
+              nzPlaceHolder="请选择产品角色"
+              (ngModelChange)="onChange($event)">
+            </nz-tree-select>
           </nz-form-control>
         </nz-form-item>
       </div>
