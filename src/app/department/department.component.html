@@ -1,0 +1,95 @@
+<form nz-form [nzLayout]="'inline'" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-label nzFor="name">部门类型</nz-form-label>
+    <nz-form-control>
+      <nz-input-group>
+        <nz-select style="width: 8rem;"
+                   [(ngModel)]="form.selectedValue"
+                   name="name"
+                   id="name">
+          <nz-option nzValue="common" nzLabel="科室"></nz-option>
+          <nz-option nzValue="nursing" nzLabel="护理部"></nz-option>
+        </nz-select>
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzFor="keyword">部门名称</nz-form-label>
+    <nz-form-control>
+      <nz-input-group [nzSuffix]="suffixIcon">
+        <input nz-input placeholder="请输入部门名称" name="keyword" id="keyword" [(ngModel)]="form.searchValue">
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+      <nz-input-group>
+        <button nz-button nzType="primary">查询</button>
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+<ng-template #suffixIcon>
+  <i nz-icon type="search"></i>
+</ng-template>
+<div nz-row>
+  <div nz-col [nzMd]="{ span: 8 }" class="tree">
+    <nz-tree
+      #treeCom
+      nzShowLine
+      [nzData]="nodes"
+      [nzSearchValue]="form.searchValue"
+      (nzClick)="nzEvent($event)"
+      (nzExpandChange)="nzEvent($event)"
+      (nzSearchValueChange)="nzEvent($event)">
+    </nz-tree>
+  </div>
+  <div nz-col [nzMd]="{ span: 15 }" class="table">
+    <div class="table-operations">
+      <button nz-button nzType="danger">批量删除</button>
+      <button nz-button>导入</button>
+      <button nz-button>下载模版</button>
+      <button nz-button (click)="add()">新增</button>
+    </div>
+    <nz-table #rowSelectionTable
+              nzSize="small"
+              nzShowPagination
+              nzShowSizeChanger
+              [nzScroll]="{ y: '53vh' }"
+              (nzCurrentPageDataChange)="currentPageDataChange($event)"
+              [nzData]="listOfAllData">
+      <thead>
+      <tr>
+        <th nzWidth="1rem" nzShowCheckbox [(nzChecked)]="isAllDisplayDataChecked"
+            (nzCheckedChange)="checkAll($event)"></th>
+        <th nzWidth="6rem">操作</th>
+        <th nzWidth="8rem">排序</th>
+        <th>部门名称</th>
+        <th nzWidth="8rem">备注</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of rowSelectionTable.data">
+        <td nzShowCheckbox [(nzChecked)]="mapOfCheckedId[data.id]" (nzCheckedChange)="refreshStatus()"></td>
+        <td>
+          <a>修改</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>删除</a>
+        </td>
+        <td>
+          <i nz-icon type="arrow-left" theme="outline"></i>
+          <nz-divider nzType="vertical"></nz-divider>
+          <i nz-icon type="arrow-up" theme="outline"></i>
+          <nz-divider nzType="vertical"></nz-divider>
+          <i nz-icon type="arrow-down" theme="outline"></i>
+          <nz-divider nzType="vertical"></nz-divider>
+          <i nz-icon type="arrow-right" theme="outline"></i>
+        </td>
+        <td>{{data.name}}</td>
+        <td>{{data.address}}</td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
+

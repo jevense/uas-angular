@@ -1,0 +1,26 @@
+.product {
+  padding: .5rem;
+
+  .granted, .recommend {
+    padding: 0 .5rem;
+    border-left: 3px solid #ff8600;
+  }
+
+  [nz-row] {
+    padding: .5rem;
+  }
+
+  .product-item {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.operation {
+  float: right;
+}
+
+
+p {
+  margin: 0;
+}

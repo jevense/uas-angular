@@ -1,0 +1,14 @@
+[nz-form] {
+  max-width: 40rem;
+  min-width: 30rem;
+  margin: 5rem auto;
+
+  button {
+    margin-left: 1rem;
+  }
+}
+
+nz-date-picker ::ng-deep .ant-calendar-picker {
+  width: 100%;
+}
+

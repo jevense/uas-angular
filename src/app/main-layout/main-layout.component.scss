@@ -1,0 +1,84 @@
+.layout {
+
+  height: 100vh;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    .title {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      align-items: center;
+
+      .institute {
+        margin-left: 1rem;
+        font-size: larger;
+        font-weight: bolder;
+        color: white;
+      }
+    }
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+
+    .setting {
+      color: white;
+    }
+  }
+
+  .side {
+    height: 90vh;
+    padding-top: 2rem;
+    overflow-y: scroll;
+
+    .side-menu {
+      background: #005195;
+      color: #D1D1D1;
+      border: 0;
+
+      span {
+        font-size: larger;
+      }
+
+      li {
+        a {
+          color: #D1D1D1;
+        }
+
+        &.ant-menu-item-selected a {
+          color: #005195;
+        }
+
+        &.ant-menu-item::after {
+          border-right: 1px solid #1890ff;
+        }
+      }
+    }
+
+    .role {
+      text-align: center;
+    }
+
+  }
+
+  nz-content.right {
+    padding: 1rem;
+
+    .content {
+      height: 80vh;
+      overflow-y: scroll;
+    }
+
+    .ant-divider-horizontal {
+      margin: 1rem 0 0;
+    }
+  }
+}
+
+
+
+

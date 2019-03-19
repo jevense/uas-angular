@@ -1,0 +1,39 @@
+<nz-row [nzGutter]="16">
+  <nz-col [nzSpan]="6">
+    <nz-card>
+      <nz-statistic
+        [nzTitle]="'学生'"
+        [nzValue]="232"
+        [nzValueStyle]="{ color: '#1488E9' }">
+      </nz-statistic>
+    </nz-card>
+  </nz-col>
+  <nz-col [nzSpan]="6">
+    <nz-card>
+      <nz-statistic
+        [nzTitle]="'老师'"
+        [nzValue]="132"
+        [nzValueStyle]="{ color: '#1488E9' }">
+      </nz-statistic>
+    </nz-card>
+  </nz-col>
+  <nz-col [nzSpan]="6">
+    <nz-card>
+      <nz-statistic
+        [nzTitle]="'授权产品'"
+        [nzValue]="2"
+        [nzValueStyle]="{ color: '#1488E9' }">
+      </nz-statistic>
+    </nz-card>
+  </nz-col>
+  <nz-col [nzSpan]="6">
+    <nz-card>
+      <nz-statistic
+        [nzTitle]="'部门数量'"
+        [nzValue]="32"
+        [nzValueStyle]="{ color: '#1488E9' }">
+      </nz-statistic>
+    </nz-card>
+  </nz-col>
+</nz-row>
+<g2-chart [options]="options" (ready)="ready($event)" (destroy)="destroy()"></g2-chart>

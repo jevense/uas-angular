@@ -1,0 +1,121 @@
+<nz-layout class="layout">
+  <nz-header class="header">
+    <div class="title">
+      <nz-avatar nzSize="large"
+                 nzSrc="https://mvw-yth.oss-cn-beijing.aliyuncs.com/data/institute/80y_20171128205512806.jpg">
+      </nz-avatar>
+      <div class="institute">医视界医院教学培训系统</div>
+    </div>
+    <div class="menu">
+      <nz-dropdown nzTrigger="click" nzPlacement="bottomLeft">
+        <button nz-button nz-dropdown>所在机构1 <i nz-icon type="down"></i></button>
+        <ul nz-menu>
+          <li nz-menu-item>
+            <a>所在机构1</a>
+          </li>
+          <li nz-menu-item>
+            <a>所在机构1</a>
+          </li>
+        </ul>
+      </nz-dropdown>
+      <nz-divider nzType="vertical"></nz-divider>
+      <nz-dropdown nzTrigger="click" nzPlacement="bottomRight">
+        <a nz-dropdown class="setting">
+          <i nz-icon type="user"></i> Jevense <i nz-icon type="down"></i>
+        </a>
+        <ul nz-menu>
+          <li nz-menu-item>修改密码</li>
+          <li nz-menu-item>退出</li>
+        </ul>
+      </nz-dropdown>
+    </div>
+  </nz-header>
+  <nz-content>
+    <nz-layout>
+      <nz-sider [nzWidth]="180" class="side">
+        <div class="role">
+          <nz-dropdown nzTrigger="click" nzPlacement="bottomLeft">
+            <button nz-button nz-dropdown>机构管理员<i nz-icon type="down"></i></button>
+            <ul nz-menu>
+              <li nz-menu-item>
+                <a>机构管理员</a>
+              </li>
+              <li nz-menu-item>
+                <a>科室管理员</a>
+              </li>
+              <li nz-menu-item>
+                <a>老师</a>
+              </li>
+              <li nz-menu-item>
+                <a>学生</a>
+              </li>
+            </ul>
+          </nz-dropdown>
+        </div>
+        <ul nz-menu [nzMode]="'inline'" class="side-menu">
+          <li nz-submenu>
+            <span title><i nz-icon type="home"></i>首页</span>
+            <ul>
+              <li nz-menu-item><a [routerLink]="['/main/home']">主页</a></li>
+              <!--<li nz-menu-item>新建部门</li>-->
+            </ul>
+          </li>
+          <li nz-submenu>
+            <span title><i nz-icon type="team"></i>部门管理</span>
+            <ul>
+              <li nz-menu-item><a [routerLink]="['/main/department']">部门列表</a></li>
+              <!--<li nz-menu-item>新建部门</li>-->
+            </ul>
+          </li>
+          <li nz-submenu>
+            <span title><i nz-icon type="appstore"></i>产品管理</span>
+            <ul>
+              <li nz-menu-item><a [routerLink]="['/main/product']">产品列表</a></li>
+            </ul>
+          </li>
+          <li nz-submenu>
+            <span title><i nz-icon type="user"></i>用户管理</span>
+            <ul>
+              <li nz-menu-item><a [routerLink]="['/main/user']">用户列表</a></li>
+              <!--<li nz-menu-item>新建用户</li>-->
+              <!--<li nz-menu-item>新建管理员</li>-->
+            </ul>
+          </li>
+          <li nz-submenu>
+            <span title><i nz-icon type="message"></i>消息管理</span>
+            <ul>
+              <li nz-menu-item><a>消息列表</a></li>
+              <!--<li nz-menu-item>新建消息</li>-->
+            </ul>
+          </li>
+          <li nz-submenu>
+            <span title><i nz-icon type="setting"></i>系统管理</span>
+            <ul>
+              <li nz-menu-item><a>专业管理</a></li>
+              <li nz-menu-item><a>自定义专业管理</a></li>
+              <li nz-menu-item><a>用户信息填报设置</a></li>
+              <li nz-menu-item><a>系统日志</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nz-sider>
+      <nz-content class="right">
+        <nz-breadcrumb class="breadcrumb">
+          <nz-breadcrumb-item>
+            <a [routerLink]="['/main/home']">主页</a>
+          </nz-breadcrumb-item>
+          <nz-breadcrumb-item>
+            <a [routerLink]="['/main/department']">部门管理</a>
+          </nz-breadcrumb-item>
+          <nz-breadcrumb-item>
+            新建部门
+          </nz-breadcrumb-item>
+        </nz-breadcrumb>
+        <nz-divider></nz-divider>
+        <div class="content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+    </nz-layout>
+  </nz-content>
+</nz-layout>

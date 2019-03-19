@@ -1,0 +1,55 @@
+<div class="product">
+  <div class="granted"><span>授权产品</span></div>
+  <div class="product-item">
+    <nz-card nzHoverable [nzActions]="[about,setting]">
+      <nz-card-meta nzTitle="住院医师规范化培训管理系统" [nzDescription]="description"
+                    [nzAvatar]="avatarTemplate"></nz-card-meta>
+    </nz-card>
+    <nz-card nzHoverable [nzActions]="[about,setting]">
+      <nz-card-meta nzTitle="住院医师规范化培训管理系统" [nzDescription]="description"
+                    [nzAvatar]="avatarTemplate"></nz-card-meta>
+    </nz-card>
+    <nz-card nzHoverable [nzActions]="[about,setting]">
+      <nz-card-meta nzTitle="住院医师规范化培训管理系统" [nzDescription]="description"
+                    [nzAvatar]="avatarTemplate"></nz-card-meta>
+    </nz-card>
+    <nz-card nzHoverable [nzActions]="[about,setting]">
+      <nz-card-meta nzTitle="住院医师规范化培训管理系统" [nzDescription]="description"
+                    [nzAvatar]="avatarTemplate"></nz-card-meta>
+    </nz-card>
+    <nz-card nzHoverable [nzActions]="[about,setting]">
+      <nz-card-meta nzTitle="住院医师规范化培训管理系统" [nzDescription]="description"
+                    [nzAvatar]="avatarTemplate"></nz-card-meta>
+    </nz-card>
+  </div>
+  <div class="recommend"><span>为您推荐</span></div>
+  <div nz-row>
+    <div nz-col [nzSpan]="8">
+      <nz-card nzHoverable (click)="recommend()">
+        <nz-card-meta
+          nzDescription="点击推荐产品，了解更多医视教学产品"
+          [nzAvatar]="plusTemplate"></nz-card-meta>
+      </nz-card>
+    </div>
+  </div>
+</div>
+<ng-template #avatarTemplate>
+  <nz-avatar [nzSize]="80" [nzShape]="'square'"
+             nzSrc="https://mvw-yth.oss-cn-beijing.aliyuncs.com/data/product/lALPBbCc1ZAw6d1ycg_114_114_20180402095624866.png"></nz-avatar>
+</ng-template>
+<ng-template #plusTemplate>
+  <nz-avatar [nzSize]="64" [nzShape]="'square'" nzIcon="plus"></nz-avatar>
+</ng-template>
+<ng-template #description>
+  <div>服务有效期：</div>
+  <div>2018.04.02 -2020.12.31</div>
+  <div>授权时间：剩余 653天</div>
+</ng-template>
+<ng-template #setting>
+  <i nz-icon type="setting"></i> 管理入口
+</ng-template>
+<ng-template #about>
+  <i nz-icon type="exclamation-circle" theme="outline"></i> 关于
+</ng-template>
+
+

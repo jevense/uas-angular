@@ -1,0 +1,59 @@
+<form nz-form [formGroup]="validateForm" class="ant-advanced-search-form">
+  <div nz-row [nzGutter]="24">
+    <div nz-col [nzSpan]="8" *ngFor="let control of controlArray" [style.display]="control.show?'block':'none'">
+      <nz-form-item nzFlex>
+        <nz-form-label [nzFor]="'field'+control.index">Field {{control.index}}</nz-form-label>
+        <nz-form-control>
+          <input nz-input placeholder="placeholder" [formControlName]="'field'+control.index"
+                 [attr.id]="'field'+control.index">
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col [nzSpan]="24" style="text-align: right;">
+      <button nz-button [nzType]="'primary'">Search</button>
+      <button nz-button (click)="resetForm()">Clear</button>
+      <a style="margin-left:8px;font-size:12px;" (click)="toggleCollapse()">
+        Collapse
+        <i nz-icon [type]="isCollapse?'down':'up'"></i>
+      </a>
+    </div>
+  </div>
+</form>
+<div class="search-result-list">
+  <nz-table #columnTable [nzData]="listOfData" [nzScroll]="{x:'1100px'}">
+    <thead>
+    <tr>
+      <th nzWidth="100px" nzLeft="0px">Full Name</th>
+      <th nzWidth="100px" nzLeft="100px">Age</th>
+      <th nzWidth="100px">Column 1</th>
+      <th nzWidth="100px">Column 2</th>
+      <th nzWidth="100px">Column 3</th>
+      <th nzWidth="100px">Column 4</th>
+      <th nzWidth="100px">Column 5</th>
+      <th nzWidth="100px">Column 6</th>
+      <th nzWidth="100px">Column 7</th>
+      <th nzRight="100px" nzWidth="100px">Column 8</th>
+      <th nzWidth="100px" nzRight="0px">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of columnTable.data">
+      <td nzLeft="0px">{{data.name}}</td>
+      <td nzLeft="100px">{{data.age}}</td>
+      <td>{{data.address}}</td>
+      <td>{{data.address}}</td>
+      <td>{{data.address}}</td>
+      <td>{{data.address}}</td>
+      <td>{{data.address}}</td>
+      <td>{{data.address}}</td>
+      <td>{{data.address}}</td>
+      <td nzRight="100px">{{data.address}}</td>
+      <td nzRight="0px">
+        <a>action</a>
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>

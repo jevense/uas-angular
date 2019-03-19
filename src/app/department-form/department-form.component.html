@@ -1,0 +1,39 @@
+<form nz-form>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5" nzRequired>部门名称</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzValidateStatus="error">
+      <input [(ngModel)]="info.name" name="name" nz-input>
+      <nz-form-explain>部门名称不能为空</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <!--<nz-form-item>-->
+  <!--<nz-form-label [nzSpan]="5">Success</nz-form-label>-->
+  <!--<nz-form-control [nzSpan]="12" nzValidateStatus="success" nzHasFeedback>-->
+  <!--<input nz-input [ngModel]="'The content'" name="successValid">-->
+  <!--</nz-form-control>-->
+  <!--</nz-form-item>-->
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5" nzRequired>所属部门</nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <nz-cascader
+        (ngModelChange)="onChanges($event)"
+        [(ngModel)]="info.departmentId"
+        [nzExpandTrigger]="'hover'"
+        [nzOptions]="nzOptions"
+        name="departmentId">
+      </nz-cascader>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">备注</nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <textarea [(ngModel)]="info.mark" name="mark" nz-input nzAutosize placeholder="备注"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzOffset]="7" [nzSpan]="12">
+      <button [disabled]="!validateForm.valid" nz-button nzType="primary">保存</button>
+      <button (click)="resetForm($event)" nz-button>重置</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

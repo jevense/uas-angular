@@ -1,0 +1,15 @@
+<div nz-row [nzGutter]="16">
+  <div nz-col [nzSpan]="8">
+    <nz-card nzHoverable>
+      <nz-card-meta nzTitle="医学数据库群" [nzDescription]="description"
+                    [nzAvatar]="avatarTemplate"></nz-card-meta>
+    </nz-card>
+  </div>
+</div>
+<ng-template #avatarTemplate>
+  <nz-avatar [nzSize]="80" [nzShape]="'square'"
+             nzSrc="https://mvw-yth.oss-cn-beijing.aliyuncs.com/data/product/医学数据库_20171210130242588.png"></nz-avatar>
+</ng-template>
+<ng-template #description>
+  <span>集存储、检索、共享、分析、数据中心功能为一体的医学类综合数据服务平台</span>
+</ng-template>
