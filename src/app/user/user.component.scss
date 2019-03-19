@@ -1,0 +1,27 @@
+.form {
+  nz-select, input {
+    width: 9rem;
+  }
+
+  nz-form-label {
+    width: 5em;
+  }
+
+  .search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .mx-sm {
+      margin: 0 .5rem;
+    }
+  }
+
+  .operation {
+    button {
+      margin: .5rem;
+    }
+  }
+
+}
+

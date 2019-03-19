@@ -13,6 +13,10 @@
   .product-item {
     display: flex;
     flex-wrap: wrap;
+
+    nz-card {
+      margin: .2rem;
+    }
   }
 }
 

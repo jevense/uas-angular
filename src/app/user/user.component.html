@@ -1,59 +1,189 @@
-<form nz-form [formGroup]="validateForm" class="ant-advanced-search-form">
-  <div nz-row [nzGutter]="24">
-    <div nz-col [nzSpan]="8" *ngFor="let control of controlArray" [style.display]="control.show?'block':'none'">
-      <nz-form-item nzFlex>
-        <nz-form-label [nzFor]="'field'+control.index">Field {{control.index}}</nz-form-label>
-        <nz-form-control>
-          <input nz-input placeholder="placeholder" [formControlName]="'field'+control.index"
-                 [attr.id]="'field'+control.index">
-        </nz-form-control>
-      </nz-form-item>
+<nz-card [nzBordered]="false" class="form">
+  <form nz-form [nzLayout]="'inline'" (ngSubmit)="getData()">
+    <div nz-row>
+      <div nz-col nzMd="6" nzSm="24">
+        <nz-form-item>
+          <nz-form-label nzFor="no">用户名</nz-form-label>
+          <nz-form-control>
+            <input nz-input name="no" placeholder="请输入">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzMd="6" nzSm="24">
+        <nz-form-item>
+          <nz-form-label nzFor="no">姓名</nz-form-label>
+          <nz-form-control>
+            <input nz-input name="no" placeholder="请输入">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzMd="6" nzSm="24">
+        <nz-form-item>
+          <nz-form-label nzFor="status">性别</nz-form-label>
+          <nz-form-control>
+            <nz-select nzPlaceHolder="请选择">
+              <nz-option nzValue="all" nzLabel="全部"></nz-option>
+              <nz-option nzValue="male" nzLabel="男"></nz-option>
+              <nz-option nzValue="female" nzLabel="女"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzMd="6" nzSm="24" *ngIf="expandForm">
+        <nz-form-item>
+          <nz-form-label nzFor="no">用户名</nz-form-label>
+          <nz-form-control>
+            <input nz-input name="no" placeholder="请输入">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzMd="6" nzSm="24" *ngIf="expandForm">
+        <nz-form-item>
+          <nz-form-label nzFor="no">证件号码</nz-form-label>
+          <nz-form-control>
+            <input nz-input name="no" placeholder="请输入">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzMd="6" nzSm="24" *ngIf="expandForm">
+        <nz-form-item>
+          <nz-form-label nzFor="no">状态</nz-form-label>
+          <nz-form-control>
+            <input nz-input name="no" placeholder="请输入">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzMd="6" nzSm="24" *ngIf="expandForm">
+        <nz-form-item>
+          <nz-form-label nzFor="no">人员类别</nz-form-label>
+          <nz-form-control>
+            <input nz-input name="no" placeholder="请输入">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzMd="6" nzSm="24" *ngIf="expandForm">
+        <nz-form-item>
+          <nz-form-label nzFor="no">身份类型</nz-form-label>
+          <nz-form-control>
+            <input nz-input name="no" placeholder="请输入">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzMd="6" nzSm="24" *ngIf="expandForm">
+        <nz-form-item>
+          <nz-form-label nzFor="no">所在专业</nz-form-label>
+          <nz-form-control>
+            <input nz-input name="no" placeholder="请输入">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzMd="6" nzSm="24" *ngIf="expandForm">
+        <nz-form-item>
+          <nz-form-label nzFor="no">参培年份</nz-form-label>
+          <nz-form-control>
+            <input nz-input name="no" placeholder="请输入">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzMd="6" nzSm="24" *ngIf="expandForm">
+        <nz-form-item>
+          <nz-form-label nzFor="no">产品角色</nz-form-label>
+          <nz-form-control>
+            <input nz-input name="no" placeholder="请输入">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="expandForm ? 24 : 6" [class.text-right]="expandForm" class="search">
+        <button nz-button type="submit" [nzType]="'primary'" [nzLoading]="loading">查询</button>
+        <button nz-button type="reset" (click)="reset()" class="mx-sm">重置</button>
+        <a (click)="expandForm=!expandForm">
+          {{expandForm ? '收起' : '展开'}}
+          <i class="anticon" [class.anticon-down]="!expandForm" [class.anticon-up]="expandForm"></i>
+        </a>
+      </div>
     </div>
-  </div>
-  <div nz-row>
-    <div nz-col [nzSpan]="24" style="text-align: right;">
-      <button nz-button [nzType]="'primary'">Search</button>
-      <button nz-button (click)="resetForm()">Clear</button>
-      <a style="margin-left:8px;font-size:12px;" (click)="toggleCollapse()">
-        Collapse
-        <i nz-icon [type]="isCollapse?'down':'up'"></i>
-      </a>
-    </div>
-  </div>
-</form>
-<div class="search-result-list">
-  <nz-table #columnTable [nzData]="listOfData" [nzScroll]="{x:'1100px'}">
+  </form>
+  <nz-table #columnTable nzSize="middle" [nzTitle]="title" [nzData]="listOfData" [nzScroll]="{x:'100rem'}">
     <thead>
     <tr>
-      <th nzWidth="100px" nzLeft="0px">Full Name</th>
-      <th nzWidth="100px" nzLeft="100px">Age</th>
-      <th nzWidth="100px">Column 1</th>
-      <th nzWidth="100px">Column 2</th>
-      <th nzWidth="100px">Column 3</th>
-      <th nzWidth="100px">Column 4</th>
-      <th nzWidth="100px">Column 5</th>
-      <th nzWidth="100px">Column 6</th>
-      <th nzWidth="100px">Column 7</th>
-      <th nzRight="100px" nzWidth="100px">Column 8</th>
-      <th nzWidth="100px" nzRight="0px">Action</th>
+      <th nzWidth="2rem" nzLeft="0" nzShowCheckbox [(nzChecked)]="isAllDisplayDataChecked"
+          (nzCheckedChange)="checkAll($event)"></th>
+      <th nzWidth="8rem" nzLeft="2rem">手机号</th>
+      <th nzWidth="6rem">姓名</th>
+      <th>所在部门</th>
+      <th>人员类别</th>
+      <th>身份类型</th>
+      <th>所在专业</th>
+      <th>参培年份</th>
+      <th>系统角色</th>
+      <th>用户名</th>
+      <th>住培角色</th>
+      <th>考试角色</th>
+      <th>360角色</th>
+      <th>状态</th>
+      <th nzWidth="20rem" nzRight="0">操作</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let data of columnTable.data">
-      <td nzLeft="0px">{{data.name}}</td>
-      <td nzLeft="100px">{{data.age}}</td>
-      <td>{{data.address}}</td>
-      <td>{{data.address}}</td>
-      <td>{{data.address}}</td>
-      <td>{{data.address}}</td>
-      <td>{{data.address}}</td>
-      <td>{{data.address}}</td>
-      <td>{{data.address}}</td>
-      <td nzRight="100px">{{data.address}}</td>
-      <td nzRight="0px">
-        <a>action</a>
+      <td nzLeft="0" nzShowCheckbox [(nzChecked)]="mapOfCheckedId[data.id]" (nzCheckedChange)="refreshStatus()"></td>
+      <td nzLeft="2rem">{{data.phone}}</td>
+      <td>{{data.name}}</td>
+      <td>{{data.department}}</td>
+      <td>{{data.duty}}</td>
+      <td>{{data.idType}}</td>
+      <td>{{data.subject}}</td>
+      <td>{{data.year}}</td>
+      <td>{{data.role}}</td>
+      <td>{{data.account}}</td>
+      <td>{{data.rstRole}}</td>
+      <td>{{data.examRole}}</td>
+      <td>{{data.auditRole}}</td>
+      <td>{{data.status}}</td>
+      <td nzRight="0">
+        编辑
+        <nz-divider nzType="vertical"></nz-divider>
+        重置密码
+        <nz-divider nzType="vertical"></nz-divider>
+        禁用
+        <nz-divider nzType="vertical"></nz-divider>
+        移除
+        <nz-divider nzType="vertical"></nz-divider>
+        分配角色
       </td>
     </tr>
     </tbody>
   </nz-table>
-</div>
+</nz-card>
+<ng-template #modalContent>
+  <nz-form-item>
+    <nz-form-label nzFor="no">描述</nz-form-label>
+    <nz-form-control>
+      <input nz-input [(ngModel)]="description" name="description" placeholder="请输入">
+    </nz-form-control>
+  </nz-form-item>
+</ng-template>
+<ng-template #title>
+  <div class="operation">
+    <button nz-button (click)="add(modalContent)" [nzType]="'primary'">
+      <span>删除</span>
+    </button>
+    <button nz-button (click)="add(modalContent)" [nzType]="'primary'">
+      <span>分配角色</span>
+    </button>
+    <button nz-button (click)="add(modalContent)" [nzType]="'primary'">
+      <span>导出</span>
+    </button>
+    <button nz-button (click)="add(modalContent)" [nzType]="'primary'">
+      <span>新建用户</span>
+    </button>
+    <button nz-button (click)="add(modalContent)" [nzType]="'primary'">
+      <span>导入</span>
+    </button>
+    <button nz-button (click)="add(modalContent)" [nzType]="'primary'">
+      <span>下载模版</span>
+    </button>
+  </div>
+</ng-template>
+
+
