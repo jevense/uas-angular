@@ -1,10 +1,14 @@
 .form {
-  nz-select, input, nz-tree-select {
+  nz-select, input {
     width: 9rem;
   }
 
+  nz-tree-select {
+    width: 25.2rem;
+  }
+
   nz-form-label {
-    width: 5em;
+    width: 6em;
   }
 
   .search {

@@ -30,35 +30,152 @@ export class UserComponent implements OnInit {
 
   listOfData = [];
 
-  value: string[] = ['0-0-0'];
-  nodes = [{
-    title: 'Node1',
+  subject: string[] = ['0-0-0'];
+  role: string[] = ['0-0-0'];
+  roles = [{
+    title: '机构管理员',
     value: '0-0',
-    key: '0-0',
-    children: [{
-      title: 'Child Node1',
-      value: '0-0-0',
-      key: '0-0-0',
-      isLeaf: true
-    }]
+    key: '0-0'
   }, {
-    title: 'Node2',
+    title: '住陪管理系统',
     value: '0-1',
     key: '0-1',
     children: [{
-      title: 'Child Node3',
+      title: '住培管理员',
       value: '0-1-0',
       key: '0-1-0',
       isLeaf: true
     }, {
-      title: 'Child Node4',
+      title: '专业基地管理员',
       value: '0-1-1',
       key: '0-1-1',
       isLeaf: true
     }, {
-      title: 'Child Node5',
+      title: '科室管理员',
       value: '0-1-2',
       key: '0-1-2',
+      isLeaf: true
+    }, {
+      title: '带教老师',
+      value: '0-1-3',
+      key: '0-1-2',
+      isLeaf: true
+    }, {
+      title: '责任导师',
+      value: '0-1-4',
+      key: '0-1-2',
+      isLeaf: true
+    }, {
+      title: '住培生',
+      value: '0-1-5',
+      key: '0-1-2',
+      isLeaf: true
+    }]
+  }, {
+    title: '考试系统',
+    value: '1-1',
+    key: '1-1',
+    children: [{
+      title: '组织管理员',
+      value: '1-1-0',
+      key: '1-1-0',
+      isLeaf: true
+    }, {
+      title: '总考试管理员',
+      value: '1-1-1',
+      key: '1-1-1',
+      isLeaf: true
+    }, {
+      title: '专业基地管理员',
+      value: '1-1-2',
+      key: '1-1-2',
+      isLeaf: true
+    }, {
+      title: '考生',
+      value: '1-1-2',
+      key: '1-1-2',
+      isLeaf: true
+    }]
+  }, {
+    title: '360评估',
+    value: '0-1',
+    key: '0-1',
+    children: [{
+      title: '组织管理员',
+      value: '0-1-0',
+      key: '0-1-0',
+      isLeaf: true
+    }, {
+      title: '总考试管理员',
+      value: '0-1-1',
+      key: '0-1-1',
+      isLeaf: true
+    }, {
+      title: '专业基地管理员',
+      value: '0-1-2',
+      key: '0-1-2',
+      isLeaf: true
+    }, {
+      title: '考生',
+      value: '0-1-2',
+      key: '0-1-2',
+      isLeaf: true
+    }]
+  }];
+
+  subjects = [{
+    title: '住培专业',
+    value: '0-1',
+    key: '0-1',
+    children: [{
+      title: '内科',
+      value: '0-1-0',
+      key: '0-1-0',
+      isLeaf: true
+    }, {
+      title: '外科',
+      value: '0-1-1',
+      key: '0-1-1',
+      isLeaf: true
+    }, {
+      title: '妇产科',
+      value: '0-1-2',
+      key: '0-1-2',
+      isLeaf: true
+    }, {
+      title: '儿科',
+      value: '0-1-3',
+      key: '0-1-2',
+      isLeaf: true
+    }, {
+      title: '全科',
+      value: '0-1-4',
+      key: '0-1-2',
+      isLeaf: true
+    }, {
+      title: '放射科',
+      value: '0-1-5',
+      key: '0-1-2',
+      isLeaf: true
+    }]
+  }, {
+    title: '自定义专业',
+    value: '1-1',
+    key: '1-1',
+    children: [{
+      title: '实习生专业',
+      value: '1-1-0',
+      key: '1-1-0',
+      isLeaf: true
+    }, {
+      title: '进修生专业',
+      value: '1-1-1',
+      key: '1-1-1',
+      isLeaf: true
+    }, {
+      title: '其他专业',
+      value: '1-1-2',
+      key: '1-1-2',
       isLeaf: true
     }]
   }];

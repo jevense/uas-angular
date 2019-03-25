@@ -3,7 +3,7 @@
     <div nz-row>
       <div nz-col nzMd="6" nzSm="24">
         <nz-form-item>
-          <nz-form-label nzFor="no">用户名</nz-form-label>
+          <nz-form-label nzFor="no">手机号/账号</nz-form-label>
           <nz-form-control>
             <input nz-input name="no" placeholder="请输入">
           </nz-form-control>
@@ -26,14 +26,6 @@
               <nz-option nzValue="male" nzLabel="男"></nz-option>
               <nz-option nzValue="female" nzLabel="女"></nz-option>
             </nz-select>
-          </nz-form-control>
-        </nz-form-item>
-      </div>
-      <div nz-col nzMd="6" nzSm="24" *ngIf="expandForm">
-        <nz-form-item>
-          <nz-form-label nzFor="no">用户名</nz-form-label>
-          <nz-form-control>
-            <input nz-input name="no" placeholder="请输入">
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -82,38 +74,38 @@
       </div>
       <div nz-col nzMd="6" nzSm="24" *ngIf="expandForm">
         <nz-form-item>
-          <nz-form-label nzFor="no">所在专业</nz-form-label>
-          <nz-form-control>
-            <nz-tree-select
-              [nzNodes]="nodes"
-              nzShowSearch
-              nzCheckable
-              name="value"
-              [(ngModel)]="value"
-              nzPlaceHolder="请选择所在专业"
-              (ngModelChange)="onChange($event)">
-            </nz-tree-select>
-          </nz-form-control>
-        </nz-form-item>
-      </div>
-      <div nz-col nzMd="6" nzSm="24" *ngIf="expandForm">
-        <nz-form-item>
           <nz-form-label nzFor="no">参培年份</nz-form-label>
           <nz-form-control>
             <input nz-input name="no" placeholder="请输入">
           </nz-form-control>
         </nz-form-item>
       </div>
-      <div nz-col nzMd="6" nzSm="24" *ngIf="expandForm">
+      <div nz-col nzMd="12" nzSm="24" *ngIf="expandForm">
+        <nz-form-item>
+          <nz-form-label nzFor="no">所在专业</nz-form-label>
+          <nz-form-control>
+            <nz-tree-select
+              [nzNodes]="subjects"
+              nzShowSearch
+              nzCheckable
+              name="value"
+              [(ngModel)]="subject"
+              nzPlaceHolder="请选择所在专业"
+              (ngModelChange)="onChange($event)">
+            </nz-tree-select>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzMd="12" nzSm="24" *ngIf="expandForm">
         <nz-form-item>
           <nz-form-label nzFor="no">产品角色</nz-form-label>
           <nz-form-control>
             <nz-tree-select
-              [nzNodes]="nodes"
+              [nzNodes]="roles"
               nzShowSearch
               nzCheckable
               name="value"
-              [(ngModel)]="value"
+              [(ngModel)]="role"
               nzPlaceHolder="请选择产品角色"
               (ngModelChange)="onChange($event)">
             </nz-tree-select>
